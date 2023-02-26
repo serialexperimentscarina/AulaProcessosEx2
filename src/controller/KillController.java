@@ -37,10 +37,23 @@ public class KillController {
 		}
 	}
 	
+	// Recebe um PID como parâmetro de entrada e, de acordo com SO, seleciona o comando para matar o processo.
 	public void mataPid(int pid) {
 		StringBuffer process = new StringBuffer();
 		process.append((os().contains("Windows")) ? "taskkill /pid " : "kill -9 ");
 		process.append(pid);
+		try {
+			Runtime.getRuntime().exec(process.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// Recebe um nome como parâmetro de entrada e, de acordo com SO, seleciona o comando para matar o processo.
+	public void mataNome(String nome) {
+		StringBuffer process = new StringBuffer();
+		process.append((os().contains("Windows")) ? "taskkill /im " : "pkill -f ");
+		process.append(nome);
 		try {
 			Runtime.getRuntime().exec(process.toString());
 		} catch (Exception e) {
