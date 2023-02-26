@@ -60,5 +60,16 @@ public class KillController {
 			e.printStackTrace();
 		}
 	}
+	
+	public void mataProcesso(String processo) {
+		try {
+			int pid = Integer.parseInt(processo);
+			mataPid(pid);
+		} catch (NumberFormatException e) {
+			mataNome(processo);
+		} finally {
+			System.out.println("Processo encerrado!");
+		}
+	}
 
 }
