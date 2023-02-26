@@ -33,7 +33,7 @@ public class Main {
 					break;
 			}
 		} while (opc != 3);
-		
+		input.close();
 		
 	}
 

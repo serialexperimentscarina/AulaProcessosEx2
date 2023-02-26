@@ -61,6 +61,7 @@ public class KillController {
 		}
 	}
 	
+	// Mata um processo passado pelo usuário
 	public void mataProcesso(String processo) {
 		try {
 			int pid = Integer.parseInt(processo);
