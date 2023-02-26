@@ -36,5 +36,16 @@ public class KillController {
 			e.printStackTrace();
 		}
 	}
+	
+	public void mataPid(int pid) {
+		StringBuffer process = new StringBuffer();
+		process.append((os().contains("Windows")) ? "taskkill /pid " : "kill -9 ");
+		process.append(pid);
+		try {
+			Runtime.getRuntime().exec(process.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
