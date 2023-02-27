@@ -44,6 +44,7 @@ public class KillController {
 		process.append(pid);
 		try {
 			Runtime.getRuntime().exec(process.toString());
+			System.out.println("Processo encerrado!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -56,6 +57,7 @@ public class KillController {
 		process.append(nome);
 		try {
 			Runtime.getRuntime().exec(process.toString());
+			System.out.println("Processo encerrado!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -68,8 +70,6 @@ public class KillController {
 			mataPid(pid);
 		} catch (NumberFormatException e) {
 			mataNome(processo);
-		} finally {
-			System.out.println("Processo encerrado!");
 		}
 	}
 
